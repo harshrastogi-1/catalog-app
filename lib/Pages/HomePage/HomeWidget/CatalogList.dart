@@ -7,7 +7,7 @@ import 'CatalogItem.dart';
 
 class CatalogList extends StatelessWidget {
   CatalogList({Key? key}) : super(key: key);
-  final productController = Get.put(CatalogController());
+  final productController  = Get.put(CatalogController());
 
   @override
   Widget build(BuildContext context) {

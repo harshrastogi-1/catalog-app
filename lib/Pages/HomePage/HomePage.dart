@@ -42,17 +42,19 @@ class HomePage extends StatelessWidget {
               height: 20,
             ),
             SearchBar(),
-            productController.product.isNotEmpty
-                ? Expanded(
-                    child: Padding(
-                        padding: const EdgeInsets.only(top: 8.0),
-                        child: CatalogList()),
-                  )
-                : const Expanded(
-                    child: Center(
-                      child: CircularProgressIndicator(),
+            Obx(()=>
+              productController.product.isNotEmpty
+                  ? Expanded(
+                      child: Padding(
+                          padding: const EdgeInsets.only(top: 8.0),
+                          child: CatalogList()),
+                    )
+                  : const Expanded(
+                      child: Center(
+                        child: CircularProgressIndicator(),
+                      ),
                     ),
-                  )
+            )
           ],
         ),
       )),

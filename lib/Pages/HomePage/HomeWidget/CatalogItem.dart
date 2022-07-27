@@ -34,7 +34,9 @@ class CatalogItem extends StatelessWidget {
                     margin: const EdgeInsets.all(15),
                     padding: const EdgeInsets.all(10),
                     decoration: BoxDecoration(
-                        color:cart.isSelected(catalog) ?  Colors.white:Colors.grey[300] ,
+                        color: cart.isSelected(catalog)
+                            ? Colors.white
+                            : Colors.grey[300],
                         borderRadius: BorderRadius.circular(15)),
                     child: Image.network(
                       catalog.image,
