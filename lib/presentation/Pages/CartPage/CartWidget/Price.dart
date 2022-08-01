@@ -8,13 +8,13 @@ class Price extends StatelessWidget {
     Key? key,
   }) : super(key: key);
 
-  final cart = Get.put(CartController());
+  final cartController =Get.find<CartController>();
   @override
   Widget build(BuildContext context) {
     // print("price rebuild");
     return Obx(
       () => Text(
-        '\$${cart.totalPrice}',
+        '\$${cartController.totalPrice}',
         style: Theme.of(context).textTheme.headline3,
       ),
     );

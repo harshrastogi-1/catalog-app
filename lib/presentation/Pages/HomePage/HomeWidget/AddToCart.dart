@@ -11,21 +11,23 @@ class AddToCart extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final cart = Get.put(CartController());
+    
+    final cartController =Get.find<CartController>();
+    // final cart = Get.put(CartController());
     //  isInCart = false.obs;
     // var isInCart = cart.cartItem.contains(catalog).obs;
     // print(cart.cartItem.contains(catalog));
     return Obx(
-      () => cart.isSelected(catalog)
+      () => cartController.isSelected(catalog)
           ? IconButton(
               onPressed: () {
-                cart.removeFromCart(catalog);
+                cartController.removeFromCart(catalog);
               },
               icon: const Icon(Icons.delete))
           : IconButton(
               onPressed: () {
                 // isInCart.value = !isInCart.value;
-                cart.addToCart(catalog);
+                cartController.addToCart(catalog);
               },
               icon: const Icon(Icons.add)),
     );

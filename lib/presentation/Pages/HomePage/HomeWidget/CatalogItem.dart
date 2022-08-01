@@ -15,14 +15,14 @@ class CatalogItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final cart = Get.put(CartController());
+    final cartController = Get.find<CartController>();
     return Obx(
       () => Container(
           width: 150,
           height: 150,
           margin: const EdgeInsets.only(bottom: 10, top: 10),
           decoration: BoxDecoration(
-              color: cart.isSelected(catalog) ? Colors.grey[300] : Colors.white,
+              color: cartController.isSelected(catalog) ? Colors.grey[300] : Colors.white,
               borderRadius: BorderRadius.circular(20)),
           child: Row(
             children: [
@@ -34,7 +34,7 @@ class CatalogItem extends StatelessWidget {
                     margin: const EdgeInsets.all(15),
                     padding: const EdgeInsets.all(10),
                     decoration: BoxDecoration(
-                        color: cart.isSelected(catalog)
+                        color: cartController.isSelected(catalog)
                             ? Colors.white
                             : Colors.grey[300],
                         borderRadius: BorderRadius.circular(15)),

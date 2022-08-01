@@ -10,7 +10,8 @@ class CartPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final productController = Get.put(CartController());
+    final cartController = Get.find<CartController>();
+
     return Scaffold(
       backgroundColor: Theme.of(context).canvasColor,
       appBar: AppBar(
@@ -40,7 +41,7 @@ class CartPage extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: Obx(() => Text(
-                  "Total Amount  of ${productController.count} item :",
+                  "Total Amount  of ${cartController.count} item :",
                   style: Theme.of(context).textTheme.headline5,
                 )),
           ),

@@ -8,15 +8,17 @@ import 'HomeWidget/CatalogList.dart';
 
 class HomePage extends StatelessWidget {
   HomePage({Key? key}) : super(key: key);
-  final productController = Get.put(HomeController());
-  final cartController = Get.put(CartController());
+  final productController = Get.find<HomeController>();
+  final cartController =Get.find<CartController>();
+  // final productController = Get.put(HomeController());
+  // final cartController = Get.put(CartController());
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       floatingActionButton: FloatingActionButton(
         backgroundColor: const Color.fromARGB(255, 5, 34, 58),
-        onPressed: () => Get.toNamed('/CartPage'),
+        onPressed: () => Get.toNamed('/CartPage',),
         child: Stack(
           children: [
             const Positioned(

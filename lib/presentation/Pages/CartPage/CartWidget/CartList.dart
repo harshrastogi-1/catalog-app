@@ -8,8 +8,8 @@ class CartList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final cart = Get.put(CartController());
-    return cart.cartItem.isEmpty
+    final cartController = Get.find<CartController>();
+    return cartController.cartItem.isEmpty
         ? const Center(
             child: Text(
             "Please add Item to the cart...",
@@ -17,19 +17,20 @@ class CartList extends StatelessWidget {
           ))
         : Obx(
             () => ListView.builder(
-              itemCount: cart.cartItem.length,
+              itemCount: cartController.cartItem.length,
               itemBuilder: (context, index) => ListTile(
                 leading: const Icon(Icons.done),
                 trailing: IconButton(
                   icon: const Icon(Icons.delete),
                   onPressed: () {
-                    cart.removeFromCart(cart.cartItem[index]);
+                    cartController
+                        .removeFromCart(cartController.cartItem[index]);
                     Get.snackbar("Item deleted successfully...", "",
                         dismissDirection: DismissDirection.horizontal,
                         margin: const EdgeInsets.all(20));
                   },
                 ),
-                title: Text(cart.cartItem[index].name),
+                title: Text(cartController.cartItem[index].name),
               ),
             ),
           );
