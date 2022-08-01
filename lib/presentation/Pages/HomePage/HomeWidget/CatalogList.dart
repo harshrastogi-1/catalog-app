@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../../Controller/CatalogController.dart';
+import '../../../Controller/home/homeController.dart';
 import '../../HomeDetail.dart';
 import 'CatalogItem.dart';
 
 class CatalogList extends StatelessWidget {
   CatalogList({Key? key}) : super(key: key);
-  final productController  = Get.put(CatalogController());
+  final productController = Get.put(HomeController());
 
   @override
   Widget build(BuildContext context) {

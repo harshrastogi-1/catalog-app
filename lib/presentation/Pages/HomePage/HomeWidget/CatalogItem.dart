@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../../Controller/CatalogController.dart';
-import '../../../Models/Catalog.dart';
+import '../../../../domain/entities/Item.dart';
+import '../../../Controller/cart/cartController.dart';
 import 'AddToCart.dart';
 
 class CatalogItem extends StatelessWidget {
-  CatalogItem({
+  const CatalogItem({
     Key? key,
     required this.catalog,
   }) : super(key: key);
@@ -15,7 +15,7 @@ class CatalogItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final cart = Get.put(CatalogController());
+    final cart = Get.put(CartController());
     return Obx(
       () => Container(
           width: 150,

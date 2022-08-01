@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:shopping/Pages/HomePage/HomeWidget/AddToCart.dart';
 
-import '../Models/Catalog.dart';
+import '../../domain/entities/Item.dart';
+import 'HomePage/HomeWidget/AddToCart.dart';
 
 class HomeDetails extends StatelessWidget {
   const HomeDetails({Key? key, required this.catalog}) : super(key: key);
@@ -25,10 +25,8 @@ class HomeDetails extends StatelessWidget {
                   fontWeight: FontWeight.bold,
                   color: Colors.red[600]),
             ),
-            Container(
-              width: 100,
-              height: 50,
-              child: AddToCart(catalog: catalog)),
+            SizedBox(
+                width: 100, height: 50, child: AddToCart(catalog: catalog)),
           ],
         ),
       ),
@@ -84,7 +82,6 @@ class HomeDetails extends StatelessWidget {
                 ),
               ]),
             ),
-      
           ],
         ),
       ),

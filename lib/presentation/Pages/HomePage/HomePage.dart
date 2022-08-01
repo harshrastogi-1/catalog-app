@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '/Controller/CatalogController.dart';
+import '../../Controller/cart/cartController.dart';
+import '../../Controller/home/homeController.dart';
 import 'HomeWidget/CatalogHeader.dart';
 import 'HomeWidget/CatalogList.dart';
 
 class HomePage extends StatelessWidget {
   HomePage({Key? key}) : super(key: key);
-  final productController = Get.put(CatalogController());
+  final productController = Get.put(HomeController());
+  final cartController = Get.put(CartController());
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +26,7 @@ class HomePage extends StatelessWidget {
                 bottom: 15,
                 child: Obx(
                   () => Text(
-                    "${productController.count}",
+                    "${cartController.count}",
                     style: const TextStyle(fontSize: 20),
                   ),
                 ))
@@ -42,8 +44,8 @@ class HomePage extends StatelessWidget {
               height: 20,
             ),
             SearchBar(),
-            Obx(()=>
-              productController.product.isNotEmpty
+            Obx(
+              () => productController.product.isNotEmpty
                   ? Expanded(
                       child: Padding(
                           padding: const EdgeInsets.only(top: 8.0),
@@ -65,7 +67,7 @@ class HomePage extends StatelessWidget {
 class SearchBar extends StatelessWidget {
   SearchBar({Key? key}) : super(key: key);
   final controller = TextEditingController();
-  final productController = Get.put(CatalogController());
+  final productController = Get.put(HomeController());
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -96,10 +98,10 @@ class SearchBar extends StatelessWidget {
   }
 
   void searchItem(String query) {
-    final suggestions = productController.product.where((id) {
-      final data = id.name.toLowerCase();
-      final input = query.toLowerCase();
-      return productController.product.contains(query);
-    });
+    // final suggestions = productController.product.where((id) {
+    //   // final data = id.name.toLowerCase();
+    //   // final input = query.toLowerCase();
+    //   return productController.product.contains(query);
+    // });
   }
 }

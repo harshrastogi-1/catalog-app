@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../Controller/CatalogController.dart';
+import '../../Controller/cart/cartController.dart';
 import 'CartWidget/CartList.dart';
 import 'CartWidget/CartTotal.dart';
 
@@ -10,7 +10,7 @@ class CartPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final productController = Get.put(CatalogController());
+    final productController = Get.put(CartController());
     return Scaffold(
       backgroundColor: Theme.of(context).canvasColor,
       appBar: AppBar(
@@ -39,7 +39,10 @@ class CartPage extends StatelessWidget {
           const Divider(),
           Padding(
             padding: const EdgeInsets.all(8.0),
-            child: Obx(() => Text("Total Amount  of ${productController.count} item :",style: Theme.of(context).textTheme.headline5,)),
+            child: Obx(() => Text(
+                  "Total Amount  of ${productController.count} item :",
+                  style: Theme.of(context).textTheme.headline5,
+                )),
           ),
           const CartTotal(),
         ],

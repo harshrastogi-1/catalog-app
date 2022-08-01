@@ -8,7 +8,7 @@ class CartTotal extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print("cart Total Rebuild");
+    // print("cart Total Rebuild");
     return SizedBox(
       height: 200,
       child: Padding(

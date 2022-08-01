@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../../Controller/CatalogController.dart';
+import '../../../Controller/cart/cartController.dart';
 
 class CartList extends StatelessWidget {
   const CartList({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final cart = Get.put(CatalogController());
+    final cart = Get.put(CartController());
     return cart.cartItem.isEmpty
         ? const Center(
             child: Text(
@@ -23,7 +23,6 @@ class CartList extends StatelessWidget {
                 trailing: IconButton(
                   icon: const Icon(Icons.delete),
                   onPressed: () {
-                    
                     cart.removeFromCart(cart.cartItem[index]);
                     Get.snackbar("Item deleted successfully...", "",
                         dismissDirection: DismissDirection.horizontal,
