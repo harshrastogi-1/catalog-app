@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../domain/entities/Item.dart';
-import 'HomePage/HomeWidget/AddToCart.dart';
+import 'home_page/home_widget/add_to_cart.dart';
 
 class HomeDetails extends StatelessWidget {
   const HomeDetails({Key? key, required this.catalog}) : super(key: key);

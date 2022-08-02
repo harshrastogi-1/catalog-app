@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../../domain/entities/Item.dart';
-import '../../../Controller/cart/cartController.dart';
-import 'AddToCart.dart';
+import '../../../controller/cart_controller.dart';
+import 'add_to_cart.dart';
 
 class CatalogItem extends StatelessWidget {
   const CatalogItem({

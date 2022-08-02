@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import 'Price.dart';
+import 'price.dart';
 
 class CartTotal extends StatelessWidget {
   const CartTotal({Key? key}) : super(key: key);

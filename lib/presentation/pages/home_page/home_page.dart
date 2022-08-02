@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../Controller/cart/cartController.dart';
-import '../../Controller/home/homeController.dart';
-import 'HomeWidget/CatalogHeader.dart';
-import 'HomeWidget/CatalogList.dart';
+import '../../controller/cart_controller.dart';
+
+import '../../controller/home_controller.dart';
+import 'home_widget/catalog_header.dart';
+import 'home_widget/catalog_list.dart';
 
 class HomePage extends StatelessWidget {
   HomePage({Key? key}) : super(key: key);
   final productController = Get.find<HomeController>();
-  final cartController =Get.find<CartController>();
+  final cartController = Get.find<CartController>();
   // final productController = Get.put(HomeController());
   // final cartController = Get.put(CartController());
 
@@ -18,7 +19,9 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       floatingActionButton: FloatingActionButton(
         backgroundColor: const Color.fromARGB(255, 5, 34, 58),
-        onPressed: () => Get.toNamed('/CartPage',),
+        onPressed: () => Get.toNamed(
+          '/CartPage',
+        ),
         child: Stack(
           children: [
             const Positioned(

@@ -1,6 +1,5 @@
 import 'package:get/get.dart';
-
-import '../../../domain/entities/Item.dart';
+import '../../domain/entities/Item.dart';
 
 class CartController extends GetxController {
   List<Item> cartItem = List<Item>.empty().obs;

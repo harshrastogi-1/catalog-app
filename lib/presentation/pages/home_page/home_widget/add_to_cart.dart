@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../../domain/entities/Item.dart';
-import '../../../Controller/cart/cartController.dart';
+import '../../../controller/cart_controller.dart';
 
 class AddToCart extends StatelessWidget {
   final Item catalog;
@@ -11,8 +11,7 @@ class AddToCart extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    
-    final cartController =Get.find<CartController>();
+    final cartController = Get.find<CartController>();
     // final cart = Get.put(CartController());
     //  isInCart = false.obs;
     // var isInCart = cart.cartItem.contains(catalog).obs;

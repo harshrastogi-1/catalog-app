@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:shopping/presentation/Controller/cart/cartBinding.dart';
-import 'package:shopping/presentation/Controller/home/homeBinding.dart';
 
-import 'Pages/CartPage/CartPage.dart';
-import 'Pages/HomePage/HomePage.dart';
+import 'Pages/cart_page/cart_page.dart';
+import 'bindings/cart_binding.dart';
+import 'bindings/home_binding.dart';
+import 'pages/home_page/home_page.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
