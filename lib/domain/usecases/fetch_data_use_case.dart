@@ -1,12 +1,7 @@
-// import 'package:shopping/data/respositories/home_repository.dart';
-
-// import '../entities/Item.dart';
-
-// class FetchDataUseCase {
-//   final HomeRepositoryIml _repo;
-
-//   FetchDataUseCase(this._repo);
-//   Future<Item> execute() {
-//     return _repo.fetchData();
-//   }
-// }
+import '/data/respositories/home_repository.dart';
+class FetchDataUseCase {
+  
+  Future<dynamic> execute() {
+    return HomeRepositoryIml().fetchData();
+  }
+}
