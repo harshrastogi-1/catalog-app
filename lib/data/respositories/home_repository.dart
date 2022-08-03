@@ -10,8 +10,8 @@ class HomeRepositoryIml extends HomePageRepository {
     final catalogJson = await CatalogData().fetchData();
     final decodedData = json.decode(catalogJson);
     var productsData = decodedData["products"];
-    List.from(productsData).map<ItemModel>((item) => ItemModel.fromJson(item));
 
+    List.from(productsData).map<ItemModel>((item) => ItemModel.fromJson(item));
     return productsData;
   }
 }

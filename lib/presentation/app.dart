@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import 'Pages/cart_page/cart_page.dart';
 import 'bindings/cart_binding.dart';
 import 'bindings/home_binding.dart';
+import 'pages/cart_page/cart_page.dart';
 import 'pages/home_page/home_page.dart';
 
 class MyApp extends StatelessWidget {
