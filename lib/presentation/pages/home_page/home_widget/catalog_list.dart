@@ -1,13 +1,20 @@
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+
+import '../../../../data/datasources/local/dao/cart_dao.dart';
 import '../../../controller/home_controller.dart';
 import '../../home_detail.dart';
 import 'catalog_item.dart';
 
 class CatalogList extends StatelessWidget {
-  CatalogList({Key? key}) : super(key: key);
+  CatalogList({
+    Key? key,
+    required this.dao,
+  }) : super(key: key);
   final productController = Get.find<HomeController>();
+  final CartDao dao;
 
   @override
   Widget build(BuildContext context) {
@@ -15,11 +22,13 @@ class CatalogList extends StatelessWidget {
       shrinkWrap: true,
       itemCount: productController.product.length,
       itemBuilder: (BuildContext context, int index) {
-        final catalog = productController.product[index];
+        final catalog = productController.product;
         return InkWell(
-          onTap: () => Get.to(()=>HomeDetails(catalog: catalog)),
+          onTap: () => Get.to(() => HomeDetails(catalog: catalog[index],dao: dao,)),
           child: CatalogItem(
-            catalog: catalog,
+            catalog: catalog[index], dao: dao,
+            
+
           ),
         );
       },

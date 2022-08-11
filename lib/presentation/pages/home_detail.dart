@@ -1,14 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:shopping/data/datasources/local/dao/cart_dao.dart';
 
 import '../../domain/entities/Item.dart';
 import 'home_page/home_widget/add_to_cart.dart';
 
 class HomeDetails extends StatelessWidget {
-  const HomeDetails({Key? key, required this.catalog}) : super(key: key);
+  const HomeDetails({
+    Key? key,
+    required this.catalog, required this.dao,
+  }) : super(key: key);
 
   final Item catalog;
-
+  final CartDao dao;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -26,7 +30,9 @@ class HomeDetails extends StatelessWidget {
                   color: Colors.red[600]),
             ),
             SizedBox(
-                width: 100, height: 50, child: AddToCart(catalog: catalog)),
+                width: 100,
+                height: 50,
+                child: AddToCart(catalog: catalog, dao: dao)),
           ],
         ),
       ),

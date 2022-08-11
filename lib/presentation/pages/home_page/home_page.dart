@@ -1,6 +1,10 @@
+import 'package:badges/badges.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../../data/datasources/local/const.dart';
+import '../../../data/datasources/local/dao/cart_dao.dart';
+import '../../../data/datasources/local/entities/Cart.dart';
 import '../../controller/cart_controller.dart';
 
 import '../../controller/home_controller.dart';
@@ -8,36 +12,40 @@ import 'home_widget/catalog_header.dart';
 import 'home_widget/catalog_list.dart';
 
 class HomePage extends StatelessWidget {
-  HomePage({Key? key}) : super(key: key);
+  HomePage({Key? key, required this.dao}) : super(key: key);
   final productController = Get.find<HomeController>();
   final cartController = Get.find<CartController>();
   // final productController = Get.put(HomeController());
   // final cartController = Get.put(CartController());
-
+  final CartDao dao;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      floatingActionButton: FloatingActionButton(
-        backgroundColor: const Color.fromARGB(255, 5, 34, 58),
-        onPressed: () => Get.toNamed(
-          '/CartPage',
-        ),
-        child: Stack(
-          children: [
-            const Positioned(
-                top: 15, right: 20, child: Icon(Icons.shopping_bag_rounded)),
-            Positioned(
-                right: 8,
-                bottom: 15,
-                child: Obx(
-                  () => Text(
-                    "${cartController.count}",
-                    style: const TextStyle(fontSize: 20),
+      floatingActionButton: StreamBuilder(
+          stream: dao.getAllItemInCartByUid(UID),
+          builder: ((context, snapshot) {
+            if (snapshot.hasData) {
+              cartController.items = snapshot.data as List<Cart>;
+              return Badge(
+                
+                position: const BadgePosition(bottom: 0, end: 0),
+                animationType: BadgeAnimationType.fade,
+                showBadge: true,
+                badgeColor: Colors.red,
+      
+                badgeContent: Text('${cartController.count}'),
+                child: FloatingActionButton(
+                  backgroundColor: Color.fromARGB(255, 8, 32, 53),
+                  onPressed: () => Get.toNamed(
+                    '/CartPage',
                   ),
-                ))
-          ],
-        ),
-      ),
+                  child: const Icon(Icons.shopping_cart),
+                ),
+              );
+            } else {
+              return Container();
+            }
+          })),
       body: SafeArea(
           child: Container(
         padding: const EdgeInsets.all(20),
@@ -54,7 +62,7 @@ class HomePage extends StatelessWidget {
                   ? Expanded(
                       child: Padding(
                           padding: const EdgeInsets.only(top: 8.0),
-                          child: CatalogList()),
+                          child: CatalogList(dao: dao)),
                     )
                   : const Expanded(
                       child: Center(

@@ -20,7 +20,7 @@ class ItemModel extends Item {
   final int id;
   final String name;
   final String desc;
-  final num price;
+  final String price;
   final String color;
   final String image;
 
@@ -29,7 +29,7 @@ class ItemModel extends Item {
       id: json["id"] as int,
       name: json["name"] as String,
       desc: json["desc"] as String,
-      price: json["price"] as num,
+      price: json["price"] as String,
       color: json["color"] as String,
       image: json["image"] as String,
       // selected: json["selected"],

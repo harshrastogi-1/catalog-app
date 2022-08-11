@@ -17,8 +17,10 @@ class HomeController extends GetxController {
     try {
       isLoading(true);
       var productsData = await FetchDataUseCase().execute();
-      product.assignAll(List.from(productsData)
-          .map<ItemModel>((item) => ItemModel.fromJson(item)));
+      product.assignAll(productsData);
+      // product.assignAll(List.from(productsData)
+      //     .map<ItemModel>((item) => ItemModel.fromJson(item))
+      //     .toList());
     } finally {
       isLoading(false);
     }
