@@ -39,9 +39,6 @@ class CartController extends GetxController {
 
   bool isSelected(item) {
     var isInCart = items.contains(item);
-    // ignore: avoid_print
-    print(isInCart);
-
     return isInCart;
   }
 }

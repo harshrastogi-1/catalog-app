@@ -57,6 +57,7 @@ class HomePage extends StatelessWidget {
               height: 20,
             ),
             SearchBar(),
+            productController.getAdWidget(),
             Obx(
               () => productController.product.isNotEmpty
                   ? Expanded(
