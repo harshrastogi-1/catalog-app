@@ -38,10 +38,16 @@ dependencies:
   cupertino_icons: ^1.0.2
   get: ^4.6.5
   json_annotation:
+  floor: any
+  badges: any
+  flutter_elegant_number_button: any
+  google_mobile_ads: ^2.1.0
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  floor_generator: any 
+  build_runner: any
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is
