@@ -1,6 +1,7 @@
 import 'package:badges/badges.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:google_mobile_ads/google_mobile_ads.dart';
 
 import '../../../data/datasources/local/const.dart';
 import '../../../data/datasources/local/dao/cart_dao.dart';
@@ -15,9 +16,11 @@ class HomePage extends StatelessWidget {
   HomePage({Key? key, required this.dao}) : super(key: key);
   final productController = Get.find<HomeController>();
   final cartController = Get.find<CartController>();
+
   // final productController = Get.put(HomeController());
   // final cartController = Get.put(CartController());
   final CartDao dao;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,12 +30,10 @@ class HomePage extends StatelessWidget {
             if (snapshot.hasData) {
               cartController.items = snapshot.data as List<Cart>;
               return Badge(
-                
                 position: const BadgePosition(bottom: 0, end: 0),
                 animationType: BadgeAnimationType.fade,
                 showBadge: true,
                 badgeColor: Colors.red,
-      
                 badgeContent: Text('${cartController.count}'),
                 child: FloatingActionButton(
                   backgroundColor: Color.fromARGB(255, 8, 32, 53),
@@ -57,7 +58,12 @@ class HomePage extends StatelessWidget {
               height: 20,
             ),
             SearchBar(),
-            productController.getAdWidget(),
+
+            getAdWidget(),
+            const SizedBox(
+              height: 20,
+            ),
+            // productController.getNativeAdWidget(),
             Obx(
               () => productController.product.isNotEmpty
                   ? Expanded(
@@ -76,12 +82,31 @@ class HomePage extends StatelessWidget {
       )),
     );
   }
+
+  getAdWidget() {
+    return Container(
+      alignment: Alignment.center,
+      height: productController.bannerAd.size.height.toDouble(),
+      width: productController.bannerAd.size.width.toDouble(),
+      child: AdWidget(ad: productController.bannerAd),
+    );
+  }
+
+  getNativeAdWidget() {
+    return Container(
+      alignment: Alignment.center,
+      height: 200,
+      width: Get.width,
+      child: AdWidget(ad: productController.nativeAd),
+    );
+  }
 }
 
 class SearchBar extends StatelessWidget {
   SearchBar({Key? key}) : super(key: key);
   final controller = TextEditingController();
   final productController = Get.put(HomeController());
+
   @override
   Widget build(BuildContext context) {
     return Container(

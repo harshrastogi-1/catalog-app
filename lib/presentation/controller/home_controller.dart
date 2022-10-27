@@ -10,6 +10,7 @@ class HomeController extends GetxController {
   var isLoading = true.obs;
   List product = [].obs;
   late BannerAd bannerAd;
+  late NativeAd nativeAd;
 
   @override
   void onInit() {
@@ -32,22 +33,48 @@ class HomeController extends GetxController {
     }
   }
 
-  initBanner(){
-    bannerAd =BannerAd(size: AdSize.banner, adUnitId: AdsManager.bannerAdId    , listener: BannerAdListener(), request:AdRequest());
+  initBanner() {
+    bannerAd = BannerAd(
+        size: AdSize.banner,
+        adUnitId: AdsManager.bannerAdId,
+        listener: BannerAdListener(
+          onAdLoaded: (ad) {
+            print('>>>>>> banner ads loaded');
+          },
+          onAdFailedToLoad: (ad, error) {
+            // Releases an ad resource when it fails to load
+            ad.dispose();
+            print('>>>>>>> banner Ad load failed (code=${error.code} message=${error.message})');
+          },
+        ),
+        request: const AdRequest());
     bannerAd.load();
 
+    nativeAd = NativeAd(
+        factoryId: '',
+        adUnitId: AdsManager.nativeAdUnitId,
+        listener: NativeAdListener(
+          onAdLoaded: (ad) {
+           print('>>>>> native ad loaded');
+          },
+          onAdFailedToLoad: (ad, error) {
+            // Releases an ad resource when it fails to load
+            ad.dispose();
+            print('>>>>> native Ad load failed (code=${error.code} message=${error.message})');       },
+        ),
+        request: const AdRequest());
+    nativeAd.load();
   }
-  //
-  Future<InitializationStatus>initAds(){
+
+  Future<InitializationStatus> initAds() {
     return MobileAds.instance.initialize();
   }
-  getAdWidget(){
-    return Center(
-      child: Container(
-        height: bannerAd.size.height.toDouble(),
-        width: bannerAd.size.width.toDouble(),
-        child: AdWidget(ad:bannerAd),
-      ),
-    );
+
+
+  @override
+  void dispose() {
+    bannerAd.dispose();
+    nativeAd.dispose();
+    super.dispose();
   }
 }
