@@ -1,22 +1,16 @@
-import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
-import 'package:google_mobile_ads/google_mobile_ads.dart';
-import 'package:shopping/Helper/AdsManager.dart';
 
-import '/data/Models/item_model.dart';
 import '/domain/usecases/fetch_data_use_case.dart';
 
 class HomeController extends GetxController {
   var isLoading = true.obs;
   List product = [].obs;
-  late BannerAd bannerAd;
-  late NativeAd nativeAd;
+  List localProduct = [].obs;
+  RxString query = RxString('');
 
   @override
   void onInit() {
     loadData();
-    initAds();
-    initBanner();
     super.onInit();
   }
 
@@ -25,6 +19,7 @@ class HomeController extends GetxController {
       isLoading(true);
       var productsData = await FetchDataUseCase().execute();
       product.assignAll(productsData);
+      localProduct = product;
       // product.assignAll(List.from(productsData)
       //     .map<ItemModel>((item) => ItemModel.fromJson(item))
       //     .toList());
@@ -33,48 +28,23 @@ class HomeController extends GetxController {
     }
   }
 
-  initBanner() {
-    bannerAd = BannerAd(
-        size: AdSize.banner,
-        adUnitId: AdsManager.bannerAdId,
-        listener: BannerAdListener(
-          onAdLoaded: (ad) {
-            print('>>>>>> banner ads loaded');
-          },
-          onAdFailedToLoad: (ad, error) {
-            // Releases an ad resource when it fails to load
-            ad.dispose();
-            print('>>>>>>> banner Ad load failed (code=${error.code} message=${error.message})');
-          },
-        ),
-        request: const AdRequest());
-    bannerAd.load();
-
-    nativeAd = NativeAd(
-        factoryId: '',
-        adUnitId: AdsManager.nativeAdUnitId,
-        listener: NativeAdListener(
-          onAdLoaded: (ad) {
-           print('>>>>> native ad loaded');
-          },
-          onAdFailedToLoad: (ad, error) {
-            // Releases an ad resource when it fails to load
-            ad.dispose();
-            print('>>>>> native Ad load failed (code=${error.code} message=${error.message})');       },
-        ),
-        request: const AdRequest());
-    nativeAd.load();
+  List<dynamic> get filteredData {
+    if (query.isEmpty) {
+      product = localProduct;
+      return product;
+    }
+    return product
+        .where((item) =>
+            item.name.toLowerCase().contains(query.value.toLowerCase()))
+        .toList();
   }
 
-  Future<InitializationStatus> initAds() {
-    return MobileAds.instance.initialize();
+  void search(String query) {
+    this.query.value = query;
   }
-
 
   @override
   void dispose() {
-    bannerAd.dispose();
-    nativeAd.dispose();
     super.dispose();
   }
 }

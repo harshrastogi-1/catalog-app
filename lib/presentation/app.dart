@@ -14,16 +14,19 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
+      theme: ThemeData(primarySwatch: Colors.grey),
       title: 'StateManagement with getx',
       initialRoute: '/',
       getPages: [
         GetPage(
             name: '/',
-            page: () => HomePage(dao: dao,),
+            page: () => HomePage(
+                  dao: dao,
+                ),
             bindings: [CartBinding(dao), HomeBinding()]),
         GetPage(
             name: '/CartPage',
-            page: () => CartPage(dao:dao),
+            page: () => CartPage(dao: dao),
             binding: CartBinding(dao)),
       ],
     );

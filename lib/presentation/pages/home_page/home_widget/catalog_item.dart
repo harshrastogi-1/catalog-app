@@ -2,20 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../../data/datasources/local/dao/cart_dao.dart';
-
 import '../../../../domain/entities/Item.dart';
 import '../../../controller/cart_controller.dart';
 import 'add_to_cart.dart';
 
 class CatalogItem extends StatelessWidget {
-  const CatalogItem({
-    Key? key,
-    required this.catalog,
-    required this.dao,
-  }) : super(key: key);
+  CatalogItem(
+      {Key? key, required this.catalog, required this.dao, required this.index})
+      : super(key: key);
 
   final Item catalog;
   final CartDao dao;
+  int index;
   @override
   Widget build(BuildContext context) {
     final cartController = Get.find<CartController>();
@@ -51,31 +49,29 @@ class CatalogItem extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  firstWordLength(catalog.name).length>12? Container(
-                    padding: const EdgeInsets.only(left :8.0),
-                    width: 150,
-                    child :Text(
-                      '${firstWordLength(catalog.name)}-',
-                      style: const TextStyle(
-                          fontSize: 15,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.black87),
-                      maxLines: 1,
-
-                    )
-                  ):Container(
-                    padding: const EdgeInsets.only(left:8.0),
-                    width: 150,
-                    child :Text(
-                      catalog.name,
-                      style: const TextStyle(
-                          fontSize: 15,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.black87),
-                      maxLines: 2,
-
-                    )
-                  ),
+                  firstWordLength(catalog.name).length > 12
+                      ? Container(
+                          padding: const EdgeInsets.only(left: 8.0),
+                          width: 150,
+                          child: Text(
+                            '${firstWordLength(catalog.name)}-',
+                            style: const TextStyle(
+                                fontSize: 15,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.black87),
+                            maxLines: 1,
+                          ))
+                      : Container(
+                          padding: const EdgeInsets.only(left: 8.0),
+                          width: 150,
+                          child: Text(
+                            catalog.name,
+                            style: const TextStyle(
+                                fontSize: 15,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.black87),
+                            maxLines: 2,
+                          )),
                   const SizedBox(
                     height: 5,
                   ),
@@ -84,8 +80,8 @@ class CatalogItem extends StatelessWidget {
                     child: Text(
                       catalog.desc,
                       style: Theme.of(context).textTheme.caption,
-                      // maxLines: 2,
-                      // overflow: TextOverflow.ellipsis,
+                      maxLines: 2,
+                      overflow: TextOverflow.ellipsis,
                       softWrap: false,
                     ),
                   ),

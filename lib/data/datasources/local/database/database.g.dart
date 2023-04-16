@@ -63,8 +63,11 @@ class _$AppDatabase extends AppDatabase {
 
   CartDao? _cartDaoInstance;
 
-  Future<sqflite.Database> open(String path, List<Migration> migrations,
-      [Callback? callback]) async {
+  Future<sqflite.Database> open(
+    String path,
+    List<Migration> migrations, [
+    Callback? callback,
+  ]) async {
     final databaseOptions = sqflite.OpenDatabaseOptions(
       version: 1,
       onConfigure: (database) async {
@@ -97,8 +100,10 @@ class _$AppDatabase extends AppDatabase {
 }
 
 class _$CartDao extends CartDao {
-  _$CartDao(this.database, this.changeListener)
-      : _queryAdapter = QueryAdapter(database, changeListener),
+  _$CartDao(
+    this.database,
+    this.changeListener,
+  )   : _queryAdapter = QueryAdapter(database, changeListener),
         _cartInsertionAdapter = InsertionAdapter(
             database,
             'Cart',
@@ -170,7 +175,10 @@ class _$CartDao extends CartDao {
   }
 
   @override
-  Future<Cart?> getItemInCartByUid(String uid, int id) async {
+  Future<Cart?> getItemInCartByUid(
+    String uid,
+    int id,
+  ) async {
     return _queryAdapter.query('SELECT * FROM Cart WHERE uid=?1 AND id=?2',
         mapper: (Map<String, Object?> row) => Cart(
             uid: row['uid'] as String,

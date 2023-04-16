@@ -2,8 +2,8 @@
     "products": [
         {
             "id": 1,
-            "name": "iPhone12ProAaa AAAAA",
-            "desc": "Apple iPhone 12th generation",
+            "name": "iPhone12Pro",
+            "desc": "iPhone 12 Pro mobile was launched on 13th October 2020. The phone comes with a 6.10-inch touchscreen display offering a resolution of 1170x2532 pixels at a pixel density of 460 pixels per inch (ppi). The display sports Other for protection. iPhone 12 Pro is powered by a hexa-core Apple A14 Bionic processor. The iPhone 12 Pro supports wireless charging, as well as proprietary fast charging.\n\nAs far as the cameras are concerned, the iPhone 12 Pro on the rear packs a 12-megapixel (f/1.6) primary camera; a 12-megapixel (f/2.4) camera, and a 12-megapixel (f/2.0) camera. The rear camera setup has autofocus. It sports a 12-megapixel camera on the front for selfies with an f/2.2 aperture.\n\niPhone 12 Pro is based on iOS 14 and packs 64GB of inbuilt storage. The iPhone 12 Pro is a dual-SIM (GSM and GSM) mobile that accepts Nano-SIM and eSIM cards. The iPhone 12 Pro measures 146.70 x 71.50 x 7.40mm (height x width x thickness) and weighs 189.00 grams. It was launched in Gold, Graphite, Pacific Blue, and Silver colours. It features an IP68 rating for dust and water protection.\n\nConnectivity options on the iPhone 12 Pro include Wi-Fi 802.11 a/b/g/n/ac/ax, GPS, Bluetooth v5.00, NFC, Lightning, 3G, 4G (with support for Band 40 used by some LTE networks in India) , and 5G. Sensors on the phone include accelerometer, ambient light sensor, barometer, gyroscope, proximity sensor, and compass/ magnetometer. The iPhone 12 Pro supports face unlock with 3D face recognition.",
             "price": "999",
             "color": "#33505a",
             "image": "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-12-pro-blue-hero?wid=940&hei=1112&fmt=png-alpha&qlt=80&.v=1604021661000"
@@ -11,7 +11,7 @@
         {
             "id": 2,
             "name": "Pixel 5",
-            "desc": "Google Pixel phone 5th generation",
+            "desc": "Google Pixel 5 mobile was launched on 30th September 2020. The phone comes with a 6.00-inch touchscreen display offering a resolution of 1080x2340 pixels at a pixel density of 432 pixels per inch (ppi) and an aspect ratio of 19.5:9. The display sports Gorilla Glass for protection. Google Pixel 5 is powered by a 1.8GHz octa-core Qualcomm Snapdragon 765G processor. It comes with 8GB of RAM. The Google Pixel 5 runs Android 11 and is powered by a 4080mAh non-removable battery. The Google Pixel 5 supports wireless charging, as well as proprietary fast charging.\n\nAs far as the cameras are concerned, the Google Pixel 5 on the rear packs a 12.2-megapixel (f/1.7, 1.4-micron) primary camera, and a 16-megapixel (f/2.2, 1.0-micron) camera. The rear camera setup has phase detection autofocus. It sports an 8-megapixel camera on the front for selfies with an f/2.0 aperture and a pixel size of 1.12-micron.\n\nGoogle Pixel 5 is based on Android 11 and packs 128GB of inbuilt storage. The Google Pixel 5 is a dual-SIM (GSM and GSM) mobile that accepts Nano-SIM and eSIM cards. The Google Pixel 5 measures 144.70 x 70.40 x 8.00mm (height x width x thickness) and weighs 151.00 grams. It was launched in Just Black and Sorta Sage colours. It features an IP68 rating for dust and water protection.\n\nConnectivity options on the Google Pixel 5 include Wi-Fi 802.11 a/b/g/n/ac, GPS, Bluetooth v5.00, NFC, USB Type-C, 3G, 4G (with support for Band 40 used by some LTE networks in India) , and 5G. Sensors on the phone include accelerometer, ambient light sensor, barometer, compass/ magnetometer, gyroscope, proximity sensor, and fingerprint sensor.",
             "price": "699",
             "color": "#00ac51",
             "image": "https://www.telstra.com.au/content/dam/tcom/lego/2020/plans-devices/mobiles/google-pixel-5/shared-google-pixel-5-black-05-900x1200.png"
@@ -19,23 +19,23 @@
         {
             "id": 3,
             "name": "M1 Macbook Air",
-            "desc": "Apple Macbook air with apple silicon This is the sample text  for the Adda 247",
+            "desc": "Apple MacBook Air (M1, 2020) is a macOS laptop with a 13.30-inch display that has a resolution of 2560x1600 pixels. It is powered by a Apple M1 processor and it comes with 8GB of RAM. The Apple MacBook Air (M1, 2020) packs 512GB of SSD storage.\n\nConnectivity options include Wi-Fi 802.11 a/b/g/n/ac/ax, Bluetooth and it comes with 2 USB ports (2 x Thunderbolt 3 (Type C)), Headphone and Mic Combo Jack ports",
             "price": "1099",
             "color": "#e0bfae",
             "image": "https://support.apple.com/library/APPLE/APPLECARE_ALLGEOS/SP825/macbookair.png"
         },
         {
             "id": 4,
-            "name": "Playstation 5 is available for you",
-            "desc": "Sony Playstation 5th generation",
+            "name": "Playstation 5",
+            "desc": "(PlayStation 5) The latest Sony PlayStation introduced in November 2020. Powered by an eight-core AMD Zen 2 CPU and custom AMD Radeon GPU, the PS5 is offered in two models: with and without a 4K Blu-ray drive. Supporting a 120Hz video refresh, the PS5 is considerably more powerful than the PS4 and PS4 Pro. Rather than GDDR5 memory, GDDR6 is supported with capacity doubled from 8 to 16GB. Storage is an NVMe 825GB SSD rather than a hard drive, and expandable NVMe storage is supported.",
             "price": "500",
             "color": "#544ee4",
-            "image": "https://i1.wp.com/freepngimages.com/wp-content/uploads/2020/07/Playstation-5-games-console-transparent-background-png-image.png?fit=1000%2C1000"
+            "image": "https://gmedia.playstation.com/is/image/SIEPDC/ps5-product-thumbnail-01-en-14sep21?$facebook$"
         },
         {
             "id": 5,
             "name": "Airpods Pro",
-            "desc": "Apple Aipods Pro 1st generation",
+            "desc": "The Wireless Charging Case delivers more than 24 hours of battery life and the Transparency mode for hearing and connecting with the world around you.\n\nApple AirPods Pro is easily one of the best wire-free headphones for iOS owners. Unlike other AirPods, the pro version is water-resistant as it comes with an IPX4 rating that makes you worry less about breaking them because of your sweat",
             "price": "200",
             "color": "#e3e4e9",
             "image": "https://crdms.images.consumerreports.org/c_lfill,w_598/prod/products/cr/models/400116-wireless-portable-headphones-apple-airpods-pro-10009323.png"
@@ -43,7 +43,7 @@
         {
             "id": 6,
             "name": "iPad Pro",
-            "desc": "Apple iPad Pro 2020 edition",
+            "desc": "NETWORK\tTechnology\t\nGSM / CDMA / HSPA / EVDO / LTE / 5G\nLAUNCH\tAnnounced\t2021, April 20\nStatus\tAvailable. Released 2021, May 21\nBODY\tDimensions\t280.6 x 214.9 x 6.4 mm (11.05 x 8.46 x 0.25 in)\nWeight\t682 g (Wi-Fi), 685 g (5G) (1.50 lb)\nBuild\tGlass front, aluminum back, aluminum frame\nSIM\tNano-SIM and eSIM\n \tStylus support (Bluetooth integration; magnetic)\nDISPLAY\tType\tLiquid Retina XDR mini-LED LCD, 120Hz, HDR10, Dolby Vision, 1000 nits (typ), 1600 nits (peak)\nSize\t12.9 inches, 515.3 cm2 (~85.4% screen-to-body ratio)\nResolution\t2048 x 2732 pixels, 4:3 ratio (~265 ppi density)\nProtection\tScratch-resistant glass, oleophobic coating\nPLATFORM\tOS\tiPadOS 14.5.1, up to iPadOS 15.7, upgradable to iPadOS 16.4.1\nChipset\tApple M1\nCPU\tOcta-core (4x3.2 GHz & 4xX.X GHz)\nGPU\tApple GPU (8-core graphics)\nMEMORY\tCard slot\tNo\nInternal\t128GB 8GB RAM, 256GB 8GB RAM, 512GB 8GB RAM, 1TB 16GB RAM, 2TB 16GB RAM\nMAIN CAMERA\tDual\t12 MP, f/1.8, (wide), 1/3\", 1.22µm, dual pixel PDAF\n10 MP, f/2.4, 125˚ (ultrawide)\nTOF 3D LiDAR scanner (depth)\nFeatures\tQuad-LED dual-tone flash, HDR\nVideo\t4K@24/25/30/60fps, 1080p@25/30/60/120/240fps; gyro-EIS\nSELFIE CAMERA\tSingle\t12 MP, f/2.4, 122˚ (ultrawide)\nFeatures\tFace detection, HDR, panorama\nVideo\t1080p@25/30/60fps, gyro-EIS\nSOUND\tLoudspeaker\tYes, with stereo speakers (4 speakers)\n3.5mm jack\tNo\nCOMMS\tWLAN\tWi-Fi 802.11 a/b/g/n/ac/6, dual-band, hotspot\nBluetooth\t5.0, A2DP, LE, EDR\nPositioning\tGPS, GLONASS, GALILEO, QZSS (Wi‑Fi + Cellular model only)\nNFC\tNo\nRadio\tNo\nUSB\tUSB Type-C 4 (Thunderbolt 4), DisplayPort, magnetic connector\nFEATURES\tSensors\tFace ID, accelerometer, gyro, barometer\nBATTERY\tType\tLi-Po 10758 mAh (40.88 Wh), non-removable\nMISC\tColors\tSilver, Space Gray\nModels\tA2379, A2461, A2462, iPad13,8, iPad13,9, iPad13,10, iPad13,11\nPrice\tAbout 1200 EUR",
             "price": "799",
             "color": "#f73984",
             "image": "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/ipad-pro-12-select-wifi-silver-202003_FMT_WHH?wid=940&hei=1112&fmt=png-alpha&qlt=80&.v=1583551131102"
@@ -51,7 +51,7 @@
         {
             "id": 7,
             "name": "Galaxy S21 Ultra",
-            "desc": "Samsung Galaxy S21 Ultra 2021 edition",
+            "desc": "Cameras are the main star of the Samsung Galaxy S21 Ultra 5G. There's a new-generation 108-megapixel primary camera,12-megapixel ultra-wide-angle camera and two telephoto cameras. Overall, the Samsung Galaxy S21 Ultra 5G has a mighty impressive set of rear cameras, and all of them have important roles to play, unlike phones with dedicated depth or macro cameras. The selfie camera is also equally competent here.\n\nThe Samsung Galaxy S21 Ultra is also a true-blue flagship with cutting-edge components like the Exynos 2100 5G SoC. It managed to run graphically intensive games such as Call of Duty: Mobile and Asphalt 9: Legends at the QHD+ resolution. The Galaxy S21 Ultra also fully supports Samsung's S Pen, which is sold as an accessory.\n\nThe Samsung Galaxy S21 Ultra 5G doubles up as an excellent device for media consumption. The 6.8-inch AMOLED display gets incredibly bright, and colours look rich and punchy. The 5,000mAh battery capacity is the same as what the Galaxy S20 Ultra had, and easily lasts for more than a full day of heavy to medium usage. The new design makes the Galaxy S21 Ultra 5G look way better than previous models. Samsung's new contour-cut design for the camera module is unique, and manages to mask the camera bulge pretty well.",
             "price": "1299",
             "color": "#1c1c1c",
             "image": "https://lh3.googleusercontent.com/qRQPjHrhRVIs-xnfNSyiPXOH2vH97ylMacgbTKebqJtRfNH3LlYo8pN-5igsLDWUH62tGl5zNpTsl5xd8SprzGmXoCEmWFOi2-2cQVGS-r3PaRXHt62DmJHq-jrYX0UQvWZ9BA=s800-c"
@@ -59,7 +59,7 @@
         {
             "id": 8,
             "name": "Galaxy S21",
-            "desc": "Samsung Galaxy S21 2021 edition",
+            "desc": "The Samsung Galaxy S21 specs are top-notch including a Snapdragon 888 chipset, 5G capability, 8GB RAM coupled with 128/256GB storage, and a 4000mAh battery. The phone sports a 6.2-inch Dynamic AMOLED display with an adaptive 120Hz refresh rate. In the camera department, a triple-sensor setup is presented",
             "price": "899",
             "color": "#7c95eb",
             "image": "https://images.samsung.com/is/image/samsung/p6pim/za/galaxy-s21/gallery/za-clear-cover-galaxy-s21-5g-ef-qg991ttegww-363168624?$720_576_PNG$"

@@ -1,13 +1,11 @@
 import 'package:badges/badges.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:google_mobile_ads/google_mobile_ads.dart';
 
 import '../../../data/datasources/local/const.dart';
 import '../../../data/datasources/local/dao/cart_dao.dart';
 import '../../../data/datasources/local/entities/Cart.dart';
 import '../../controller/cart_controller.dart';
-
 import '../../controller/home_controller.dart';
 import 'home_widget/catalog_header.dart';
 import 'home_widget/catalog_list.dart';
@@ -17,8 +15,6 @@ class HomePage extends StatelessWidget {
   final productController = Get.find<HomeController>();
   final cartController = Get.find<CartController>();
 
-  // final productController = Get.put(HomeController());
-  // final cartController = Get.put(CartController());
   final CartDao dao;
 
   @override
@@ -40,7 +36,10 @@ class HomePage extends StatelessWidget {
                   onPressed: () => Get.toNamed(
                     '/CartPage',
                   ),
-                  child: const Icon(Icons.shopping_cart),
+                  child: const Icon(
+                    Icons.shopping_cart_checkout_outlined,
+                    color: Colors.white,
+                  ),
                 ),
               );
             } else {
@@ -49,7 +48,7 @@ class HomePage extends StatelessWidget {
           })),
       body: SafeArea(
           child: Container(
-        padding: const EdgeInsets.all(20),
+        padding: const EdgeInsets.only(top: 20, left: 20, right: 20),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -58,12 +57,9 @@ class HomePage extends StatelessWidget {
               height: 20,
             ),
             SearchBar(),
-
-            getAdWidget(),
             const SizedBox(
-              height: 20,
+              height: 10,
             ),
-            // productController.getNativeAdWidget(),
             Obx(
               () => productController.product.isNotEmpty
                   ? Expanded(
@@ -82,24 +78,6 @@ class HomePage extends StatelessWidget {
       )),
     );
   }
-
-  getAdWidget() {
-    return Container(
-      alignment: Alignment.center,
-      height: productController.bannerAd.size.height.toDouble(),
-      width: productController.bannerAd.size.width.toDouble(),
-      child: AdWidget(ad: productController.bannerAd),
-    );
-  }
-
-  getNativeAdWidget() {
-    return Container(
-      alignment: Alignment.center,
-      height: 200,
-      width: Get.width,
-      child: AdWidget(ad: productController.nativeAd),
-    );
-  }
 }
 
 class SearchBar extends StatelessWidget {
@@ -110,37 +88,37 @@ class SearchBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.only(
-        left: 10,
-        right: 10,
-      ),
+      padding: const EdgeInsets.only(left: 10, right: 20),
       decoration: BoxDecoration(
           color: Colors.white, borderRadius: BorderRadius.circular(20)),
       height: 50,
       width: MediaQuery.of(context).size.width,
-      child: TextField(
-        controller: controller,
-        onChanged: searchItem,
-        decoration: InputDecoration(
-            hintText: "Search",
-            suffixIcon: Icon(
+      child: Row(
+        children: [
+          Expanded(
+            child: TextField(
+              onChanged: (query) => productController.search(query),
+              onSubmitted: (query) => productController.search(query),
+              decoration: InputDecoration(
+                  hintText: "Search...",
+                  contentPadding: EdgeInsets.only(top: 8, left: 10, bottom: 10),
+                  border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(20),
+                      borderSide: BorderSide.none)),
+
+              // color: Colors.amber,
+            ),
+          ),
+          InkWell(
+            onTap: () =>
+                productController.search(productController.query.value),
+            child: Icon(
               Icons.search,
               color: Colors.grey[500],
             ),
-            border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(20),
-                borderSide: BorderSide.none)),
-
-        // color: Colors.amber,
+          ),
+        ],
       ),
     );
-  }
-
-  void searchItem(String query) {
-    // final suggestions = productController.product.where((id) {
-    //   // final data = id.name.toLowerCase();
-    //   // final input = query.toLowerCase();
-    //   return productController.product.contains(query);
-    // });
   }
 }

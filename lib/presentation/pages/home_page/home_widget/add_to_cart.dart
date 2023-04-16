@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:shopping/data/datasources/local/const.dart';
+
 import '../../../../data/datasources/local/dao/cart_dao.dart';
 import '../../../../data/datasources/local/entities/Cart.dart';
 import '../../../../domain/entities/Item.dart';
@@ -21,15 +22,15 @@ class AddToCart extends StatelessWidget {
     // var isInCart = cart.cartItem.contains(catalog).obs;
     // print(cart.cartItem.contains(catalog));
     return Padding(
-      padding: const EdgeInsets.only(right:16.0),
+      padding: const EdgeInsets.only(right: 16.0),
       child: GestureDetector(
         onTap: () async {
           var cartProduct = await dao.getItemInCartByUid(UID, catalog.id);
 
-          if (cartProduct!= null) {
+          if (cartProduct != null) {
             cartProduct.quantity += 1;
             await cartController.updateToCart(cartProduct);
-          } else if(cartProduct==null){
+          } else if (cartProduct == null) {
             Cart cart = Cart(
                 id: catalog.id,
                 price: catalog.price,
@@ -40,8 +41,12 @@ class AddToCart extends StatelessWidget {
                 uid: UID);
             await cartController.addToCart(cart);
           }
+          showSnackBar();
         },
-        child: const Icon(Icons.shopping_cart,color: Color.fromARGB(255, 10, 40, 65),),
+        child: const Icon(
+          Icons.add_shopping_cart,
+          color: Color.fromARGB(255, 10, 40, 65),
+        ),
       ),
     );
     // return Obx(
@@ -73,5 +78,24 @@ class AddToCart extends StatelessWidget {
     //           },
     //           icon: const Icon(Icons.add)),
     // );
+  }
+
+  showSnackBar() {
+    ScaffoldMessenger.of(Get.context!).hideCurrentSnackBar();
+    ScaffoldMessenger.of(Get.context!).showSnackBar(
+      const SnackBar(
+        padding: EdgeInsets.all(10),
+        margin: EdgeInsets.all(10),
+        behavior: SnackBarBehavior.floating,
+        content: Text(
+          'Item Added Successfully',
+          style: TextStyle(color: Colors.black, fontSize: 15),
+        ),
+        backgroundColor: Color(0xffD3D3D3),
+        shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.all(Radius.circular(10))),
+        duration: Duration(seconds: 1),
+      ),
+    );
   }
 }

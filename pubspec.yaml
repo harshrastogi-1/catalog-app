@@ -31,6 +31,9 @@ dependencies:
     sdk: flutter
   google_fonts: ^2.1.0
   http: ^0.13.3
+  sqlite3_flutter_libs: ^0.5.0
+  path_provider: ^2.0.0
+  path: ^1.8.2
 
 
   # The following adds the Cupertino Icons font to your application.
@@ -41,13 +44,12 @@ dependencies:
   floor: any
   badges: any
   flutter_elegant_number_button: any
-  google_mobile_ads: ^2.1.0
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  floor_generator: any 
-  build_runner: any
+  floor_generator: ^1.4.1
+  build_runner: ^2.1.2
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is

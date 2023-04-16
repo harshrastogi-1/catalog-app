@@ -8,7 +8,8 @@ import 'home_page/home_widget/add_to_cart.dart';
 class HomeDetails extends StatelessWidget {
   const HomeDetails({
     Key? key,
-    required this.catalog, required this.dao,
+    required this.catalog,
+    required this.dao,
   }) : super(key: key);
 
   final Item catalog;
@@ -18,6 +19,14 @@ class HomeDetails extends StatelessWidget {
     return Scaffold(
       bottomNavigationBar: Container(
         padding: const EdgeInsets.all(8.0),
+        decoration: BoxDecoration(
+          color: Colors.grey[100],
+          borderRadius: BorderRadius.only(
+            topLeft: Radius.elliptical(MediaQuery.of(context).size.width, 25.0),
+            topRight:
+                Radius.elliptical(MediaQuery.of(context).size.width, 25.0),
+          ),
+        ),
         child: ButtonBar(
           alignment: MainAxisAlignment.spaceBetween,
           buttonPadding: const EdgeInsets.only(right: 8, left: 15),
@@ -47,30 +56,29 @@ class HomeDetails extends StatelessWidget {
         ),
       ),
       backgroundColor: Theme.of(context).canvasColor,
-      body: SafeArea(
-        bottom: false,
-        child: Column(
-          children: [
-            Container(
-              height: 350,
-              padding: const EdgeInsets.all(20),
-              decoration: BoxDecoration(
-                color: Colors.grey[100],
-                borderRadius: BorderRadius.vertical(
-                    bottom: Radius.elliptical(
-                        MediaQuery.of(context).size.width, 100.0)),
-              ),
-              child: Hero(
-                  tag: Key(catalog.id.toString()),
-                  child: Padding(
-                    padding: const EdgeInsets.only(left: 15, right: 15),
-                    child: Center(child: Image.network(catalog.image)),
-                  )),
+      body: Column(
+        children: [
+          Container(
+            height: 350,
+            padding: const EdgeInsets.all(20),
+            decoration: BoxDecoration(
+              color: Colors.grey[100],
+              borderRadius: BorderRadius.vertical(
+                  bottom: Radius.elliptical(
+                      MediaQuery.of(context).size.width, 100.0)),
             ),
-            const SizedBox(
-              height: 30,
-            ),
-            Expanded(
+            child: Hero(
+                tag: Key(catalog.id.toString()),
+                child: Padding(
+                  padding: const EdgeInsets.only(left: 15, right: 15),
+                  child: Center(child: Image.network(catalog.image)),
+                )),
+          ),
+          const SizedBox(
+            height: 30,
+          ),
+          Expanded(
+            child: SingleChildScrollView(
               child: Column(children: [
                 Text(
                   catalog.name,
@@ -79,17 +87,20 @@ class HomeDetails extends StatelessWidget {
                 const SizedBox(
                   height: 20,
                 ),
-                Text(
-                  catalog.desc,
-                  style: const TextStyle(fontSize: 18),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 30.0),
+                  child: Text(
+                    catalog.desc,
+                    style: TextStyle(fontSize: 16, color: Colors.grey[700]),
+                  ),
                 ),
                 const SizedBox(
                   height: 30,
                 ),
               ]),
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
